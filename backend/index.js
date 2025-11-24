@@ -5,6 +5,7 @@ import connectDB from './configs/db.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import router from './routes/authRoutes.js';
+import productRouter from './routes/productRouter.js';
 
 dotenv.config();
 connectDB();
@@ -14,6 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/auth',router)
+app.use('/product',productRouter)
 
 
 app.get("/",(req,res)=>{
